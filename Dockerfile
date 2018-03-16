@@ -1,10 +1,5 @@
 # Use an official Python runtime as a parent image
-FROM node:8.9.3
-
-RUN \
-  apt-get update && \
-  apt-get install -y python python-dev python-pip python-virtualenv && \
-  rm -rf /var/lib/apt/lists/*
+FROM node:9.8.0-alpine
 
 ADD . /app
 
