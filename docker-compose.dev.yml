@@ -1,0 +1,13 @@
+version: '3'
+services:
+  numberword.web:
+    image: numberwordweb:dev-v1 
+    build:
+      context: .
+      dockerfile: ./Dockerfile.dev
+    volumes:
+     - .:/app
+    environment:
+      - NODE_ENV=Development
+    ports:
+     - "4200:4200"
