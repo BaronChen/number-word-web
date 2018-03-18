@@ -31,7 +31,7 @@ jobs:
       - run: |
           #TAG=0.1.$CIRCLE_BUILD_NUM
           if [ "${CIRCLE_BRANCH}" == "master" ]; then
-            docker-compose -f dcoker-compose.prod.yml build #:$TAG .      # (4)
+            docker-compose -f docker-compose.prod.yml build #:$TAG .      # (4)
             docker tag numberwordweb:prod-v1 baron123.azurecr.io/number-word/numberwordweb
             docker login baron123.azurecr.io -u $DOCKER_USER -p $DOCKER_PASS         # (5)
             docker push baron123.azurecr.io/number-word/numberwordweb
