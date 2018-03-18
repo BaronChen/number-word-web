@@ -7,13 +7,13 @@ jobs:
       - checkout
       # ... steps for building/testing app ...
       - run:
-        name: Install dependencies
-        command: |
-          npm install
+          name: Install dependencies
+          command: |
+            npm install
       - run:
-        name: Run frontend test
-        command: |
-          npm run test-ci 
+          name: Run frontend test
+          command: |
+            npm run test-ci 
       - setup_remote_docker:   # (2)
           docker_layer_caching: true # (3)
 
