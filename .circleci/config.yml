@@ -29,10 +29,12 @@ jobs:
       # build and push Docker image
       # should tag each build, but just need to save some money for storage in registry
       - run: |
-          #TAG=0.1.$CIRCLE_BUILD_NUM
-          if [ "${CIRCLE_BRANCH}" == "master" ]; then
-            docker-compose -f docker-compose.prod.yml build #:$TAG .      # (4)
-            docker tag numberwordweb:prod-v1 baron123.azurecr.io/number-word/numberwordweb
-            docker login baron123.azurecr.io -u $DOCKER_USER -p $DOCKER_PASS         # (5)
-            docker push baron123.azurecr.io/number-word/numberwordweb
-          fi
+          name: Build docker image
+          command: |
+            #TAG=0.1.$CIRCLE_BUILD_NUM
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              docker-compose -f docker-compose.prod.yml build 
+              docker tag numberwordweb:prod-v1 baron123.azurecr.io/number-word/numberwordweb #:$TAG
+              docker login baron123.azurecr.io -u $DOCKER_USER -p $DOCKER_PASS        
+              docker push baron123.azurecr.io/number-word/numberwordweb
+            fi
