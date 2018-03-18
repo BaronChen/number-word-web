@@ -27,7 +27,7 @@ jobs:
       #       chmod +x /usr/local/bin/docker-compose
 
       # build and push Docker image
-      - run: |
+      - run:
           name: Build docker image
           command: |
             TAG=nw-$CIRCLE_BUILD_NUM
