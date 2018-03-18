@@ -30,7 +30,7 @@ jobs:
       - run:
           name: Build docker image
           command: |
-            TAG=nw-$CIRCLE_BUILD_NUM
+            TAG=web-0.$CIRCLE_BUILD_NUM
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               docker-compose -f docker-compose.prod.yml build 
               docker tag numberwordweb:prod-v1 baron123.azurecr.io/number-word/numberwordweb:$TAG
