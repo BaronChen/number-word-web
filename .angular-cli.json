@@ -55,7 +55,14 @@
   },
   "defaults": {
     "styleExt": "css",
-    "component": {},
-    "poll": 1000
+    "poll": 1000,
+    "component": {
+    },
+    "build": {
+      "poll": 1000
+    },
+    "schematics": {
+      "collection": "@ngrx/schematics"
+    }
   }
 }
