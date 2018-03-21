@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NumberInputComponent } from './number-input.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('NumberInputComponent', () => {
   let component: NumberInputComponent;
@@ -8,7 +9,8 @@ describe('NumberInputComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NumberInputComponent ]
+      declarations: [ NumberInputComponent ],
+      schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
   }));

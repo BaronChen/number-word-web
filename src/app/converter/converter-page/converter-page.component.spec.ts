@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ConverterPageComponent } from './converter-page.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('ConverterPageComponent', () => {
   let component: ConverterPageComponent;
@@ -8,7 +9,8 @@ describe('ConverterPageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ConverterPageComponent ]
+      declarations: [ ConverterPageComponent ],
+      schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
   }));
