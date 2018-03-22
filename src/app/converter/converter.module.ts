@@ -13,3 +13,7 @@ import { SharedModule } from '../shared/shared.module';
   exports: [ConverterPageComponent]
 })
 export class ConverterModule { }
+
+export const converterRoutes = [
+  { path: 'converter', component: ConverterPageComponent }
+]
