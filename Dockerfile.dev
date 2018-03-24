@@ -1,5 +1,7 @@
 # Use an official Python runtime as a parent image
-FROM node:9.8.0-alpine
+FROM node:9.8.0
+
+USER root
 
 ADD . /app
 
@@ -9,8 +11,7 @@ WORKDIR /app
 EXPOSE 4200
 
 # Install any needed packages
-RUN npm install yarn -g
-RUN yarn global add @angular/cli npm
+RUN npm install --unsafe-perm @angular/cli -g
 
 # Run 'ng serve' when the container launches
 CMD ["ng", "serve", "-H", "0.0.0.0"]

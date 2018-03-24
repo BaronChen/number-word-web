@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { ConverterModule, converterRoutes } from '../converter/converter.module';
 import { LayoutComponent } from './layout/layout.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 const appRoutes = [
@@ -25,7 +26,7 @@ const appRoutes = [
     ConverterModule,
     RouterModule.forChild(appRoutes)
   ],
-  declarations: [LayoutComponent, NotFoundComponent],
+  declarations: [LayoutComponent, NotFoundComponent, NavbarComponent],
   exports: [
     LayoutComponent
   ]
