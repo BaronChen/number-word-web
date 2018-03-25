@@ -12,7 +12,7 @@ export class NumberInputCardComponent implements OnInit {
   number: string;
 
   @Output() 
-  numberChange = new EventEmitter<string>();
+  numberChange: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() { 
 
