@@ -8,6 +8,8 @@ import * as fromConverter from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { effects as converterEffects} from './effects';
 import { NumberInputCardComponent } from './number-input/components/number-input-card/number-input-card.component';
+import { TextInputComponent } from './text-input/text-input.component';
+import { TextInputCardComponent } from './text-input/components/text-input-card/text-input-card.component';
 
 @NgModule({
   imports: [
@@ -16,7 +18,7 @@ import { NumberInputCardComponent } from './number-input/components/number-input
     StoreModule.forFeature('converter', fromConverter.reducers),
     EffectsModule.forFeature(converterEffects)
   ],
-  declarations: [NumberInputComponent, ConverterPageComponent, NumberInputCardComponent],
+  declarations: [NumberInputComponent, ConverterPageComponent, NumberInputCardComponent, TextInputComponent, TextInputCardComponent],
   exports: [ConverterPageComponent]
 })
 export class ConverterModule { }

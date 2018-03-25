@@ -5,8 +5,8 @@ import { NumberInputActions, NumberInputActionTypes } from '../actions/number-in
 @Injectable()
 export class NumberInputEffects {
 
-  @Effect()
-  effect$ = this.actions$.ofType(NumberInputActionTypes.UpdateNumber);
+  // @Effect()
+  // effect$ = this.actions$.ofType(NumberInputActionTypes.UpdateNumber);
 
   constructor(private actions$: Actions) {}
 }
