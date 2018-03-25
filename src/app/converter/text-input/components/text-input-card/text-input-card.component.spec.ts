@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TextInputCardComponent } from './text-input-card.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('TextInputCardComponent', () => {
   let component: TextInputCardComponent;
@@ -8,7 +9,8 @@ describe('TextInputCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TextInputCardComponent ]
+      declarations: [ TextInputCardComponent ],
+      schemas: [ NO_ERRORS_SCHEMA ]
     })
     .compileComponents();
   }));
