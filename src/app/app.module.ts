@@ -8,13 +8,13 @@ import { SharedModule } from './shared/shared.module';
 
 import { LayoutModule } from './layout/layout.module';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
+import { reducers, metaReducers, CustomSerializer } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
 
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreRouterConnectingModule, RouterStateSerializer } from '@ngrx/router-store';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
       stateKey: 'router'
     })
   ],
-  providers: [],
+  providers: [{provide: RouterStateSerializer, useClass: CustomSerializer}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
