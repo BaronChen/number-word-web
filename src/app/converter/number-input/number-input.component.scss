@@ -1,15 +1,5 @@
-.number-card {
-    width: 100%;
-    min-height: 200px;
-    background-color: rgba($color:#424242, $alpha: 0.6);
-
-    .form {
-        width: 100%;
-    }
-}
 
 :host {
     display: flex;
     width: 400px;
 }
-

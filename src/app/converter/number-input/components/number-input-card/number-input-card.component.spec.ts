@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NumberInputFieldComponent } from './number-input-field.component';
+import { NumberInputCardComponent } from './number-input-card.component';
 import { Store, StoreModule } from '@ngrx/store';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
-describe('NumberInputFieldComponent', () => {
-  let component: NumberInputFieldComponent;
-  let fixture: ComponentFixture<NumberInputFieldComponent>;
+describe('NumberInputCardComponent', () => {
+  let component: NumberInputCardComponent;
+  let fixture: ComponentFixture<NumberInputCardComponent>;
   let store: Store<any>;
 
   beforeEach(async() => {
     TestBed.configureTestingModule({
       imports: [ StoreModule.forRoot({}) ],
-      declarations: [ NumberInputFieldComponent ],
+      declarations: [ NumberInputCardComponent ],
       schemas: [ NO_ERRORS_SCHEMA ]
     });
 
@@ -20,7 +20,7 @@ describe('NumberInputFieldComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NumberInputFieldComponent);
+    fixture = TestBed.createComponent(NumberInputCardComponent);
     component = fixture.componentInstance;
     store = TestBed.get(Store);
 

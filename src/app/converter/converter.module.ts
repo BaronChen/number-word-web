@@ -7,7 +7,7 @@ import { StoreModule } from '@ngrx/store';
 import * as fromConverter from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { effects as converterEffects} from './effects';
-import { NumberInputFieldComponent } from './number-input/containers/number-input-field/number-input-field.component';
+import { NumberInputCardComponent } from './number-input/components/number-input-card/number-input-card.component';
 
 @NgModule({
   imports: [
@@ -16,7 +16,7 @@ import { NumberInputFieldComponent } from './number-input/containers/number-inpu
     StoreModule.forFeature('converter', fromConverter.reducers),
     EffectsModule.forFeature(converterEffects)
   ],
-  declarations: [NumberInputComponent, ConverterPageComponent, NumberInputFieldComponent],
+  declarations: [NumberInputComponent, ConverterPageComponent, NumberInputCardComponent],
   exports: [ConverterPageComponent]
 })
 export class ConverterModule { }

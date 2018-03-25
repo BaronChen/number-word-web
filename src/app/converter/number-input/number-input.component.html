@@ -1,11 +1,1 @@
-<mat-card class="number-card">
-  <mat-card-title>
-    Type a number:
-  </mat-card-title>
-  <mat-card-content>
-    <form class="form">
-      <app-number-input-field></app-number-input-field>
-    </form>
-  </mat-card-content>
-
-</mat-card>
+<app-number-input-card [number]="number$ | async" (numberChange)="numberChange($event)"></app-number-input-card>
