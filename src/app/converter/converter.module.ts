@@ -10,15 +10,17 @@ import { effects as converterEffects} from './effects';
 import { NumberInputCardComponent } from './number-input/components/number-input-card/number-input-card.component';
 import { TextInputComponent } from './text-input/text-input.component';
 import { TextInputCardComponent } from './text-input/components/text-input-card/text-input-card.component';
+import { ConvertButtonsComponent } from './convert-buttons/convert-buttons.component';
+import { ConverterButtonsGroupComponent } from './convert-buttons/components/converter-buttons-group/converter-buttons-group.component';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
     StoreModule.forFeature('converter', fromConverter.reducers),
-    EffectsModule.forFeature(converterEffects)
+    EffectsModule.forFeature(converterEffects),
   ],
-  declarations: [NumberInputComponent, ConverterPageComponent, NumberInputCardComponent, TextInputComponent, TextInputCardComponent],
+  declarations: [NumberInputComponent, ConverterPageComponent, NumberInputCardComponent, TextInputComponent, TextInputCardComponent, ConvertButtonsComponent, ConverterButtonsGroupComponent],
   exports: [ConverterPageComponent]
 })
 export class ConverterModule { }
