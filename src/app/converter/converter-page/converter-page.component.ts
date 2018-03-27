@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-converter-page',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConverterPageComponent implements OnInit {
 
-  constructor() { }
+  isMobile: boolean
+
+
+  constructor(private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit() {
+    this.breakpointObserver.observe([
+      Breakpoints.Handset,
+      Breakpoints.Tablet
+    ]).subscribe(result => {
+      if (result.matches) {
+        this.isMobile = true;
+      }
+    });
   }
-
 }

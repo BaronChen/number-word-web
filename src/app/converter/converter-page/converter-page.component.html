@@ -1,4 +1,4 @@
-<div class="converter-page">
+<div class="converter-page" [ngClass]="isMobile ? 'vertical-align' : 'horizontal-align'">
     <app-number-input></app-number-input>
     <app-convert-buttons></app-convert-buttons>
     <app-text-input></app-text-input>

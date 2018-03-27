@@ -9,9 +9,11 @@ import {
   MatCommonModule,
   MatCardModule
 } from '@angular/material';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   imports: [
+    LayoutModule,
     MatButtonModule, 
     MatCheckboxModule,
     MatFormFieldModule,
@@ -19,9 +21,10 @@ import {
     MatIconModule,
     MatToolbarModule,
     MatCommonModule,
-    MatCardModule
+    MatCardModule,
   ],
   exports: [
+    LayoutModule,
     MatButtonModule, 
     MatCheckboxModule,
     MatFormFieldModule,
