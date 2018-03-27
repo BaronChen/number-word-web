@@ -2,15 +2,27 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ConverterPageComponent } from './converter-page.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 
 describe('ConverterPageComponent', () => {
   let component: ConverterPageComponent;
   let fixture: ComponentFixture<ConverterPageComponent>;
+  let fakeObserver:any;
 
   beforeEach(async(() => {
+    fakeObserver = {
+      observe: (input) => {
+        return Observable.of({
+          matches: true
+        });
+      }
+    }
     TestBed.configureTestingModule({
       declarations: [ ConverterPageComponent ],
-      schemas: [NO_ERRORS_SCHEMA]
+      schemas: [NO_ERRORS_SCHEMA],
+      providers: [{provide:BreakpointObserver, useValue: fakeObserver}]
     })
     .compileComponents();
   }));
