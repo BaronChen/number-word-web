@@ -16,3 +16,28 @@ export const reducers = {
     convertButtons: convertButtons.reducer
 };
 
+export const getConverterState = createFeatureSelector<State>('converter');
+
+export const getNumberInputState = createSelector(
+    getConverterState,
+    state => state.numberInput
+);
+
+export const getNumber = createSelector(
+    getNumberInputState,
+    state => state.number
+);
+
+export const getTextInputState = createSelector(
+    getConverterState,
+    state => state.textInput
+);
+
+
+export const getText = createSelector(
+    getTextInputState,
+    state => {
+        return state.text;
+    }
+);
+

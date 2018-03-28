@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as fromStore from './reducers/number-input.reducer';
+import * as fromStore from '../reducers';
 import { Observable } from 'rxjs/Observable';
 import { UpdateNumber, ClearNumber } from './actions/number-input.actions';
 
@@ -18,7 +18,7 @@ export class NumberInputComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.number$ = this.store.select((state: fromStore.State) => state.number);
+    this.number$ = this.store.select(fromStore.getNumber);
   }
 
   numberChange(value:string) {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
@@ -7,6 +7,9 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
   styleUrls: ['./converter-buttons-group.component.scss']
 })
 export class ConverterButtonsGroupComponent implements OnInit {
+
+  @Output()
+  numberToTextClick = new EventEmitter();
 
   isMobile: boolean;
 
@@ -21,6 +24,10 @@ export class ConverterButtonsGroupComponent implements OnInit {
         this.isMobile = true;
       }
     });
+  }
+
+  onNumberToTextClick() {
+    this.numberToTextClick.emit();
   }
 
 }
