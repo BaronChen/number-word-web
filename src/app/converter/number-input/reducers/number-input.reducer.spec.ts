@@ -21,7 +21,7 @@ describe('NumberInput Reducer', () => {
     });
 
     it('should clear number base on action', () => {
-      const testState:State = {number: '1234'};
+      const testState:State = {number: '1234', error: ''};
       const action = new ClearNumber();
       const result = reducer(testState, action);
 

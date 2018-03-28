@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TextInputComponent } from './text-input.component';
-import { Store, StoreModule } from '@ngrx/store';
+import { Store, StoreModule, INITIAL_STATE } from '@ngrx/store';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 
@@ -14,7 +14,15 @@ describe('TextInputComponent', () => {
     TestBed.configureTestingModule({
       imports: [ StoreModule.forRoot({}) ],
       declarations: [ TextInputComponent ],
-      schemas: [NO_ERRORS_SCHEMA]
+      schemas: [NO_ERRORS_SCHEMA],
+      providers: [{provide: INITIAL_STATE, useValue: {
+        converter: {
+          textInput: {
+            text: '',
+            error: ''
+          }
+        }
+      }}]
     });
 
     await TestBed.compileComponents();

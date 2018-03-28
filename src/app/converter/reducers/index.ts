@@ -28,6 +28,11 @@ export const getNumber = createSelector(
     state => state.number
 );
 
+export const getNumberInputError = createSelector(
+    getNumberInputState,
+    state => state.error
+);
+
 export const getTextInputState = createSelector(
     getConverterState,
     state => state.textInput
@@ -36,8 +41,6 @@ export const getTextInputState = createSelector(
 
 export const getText = createSelector(
     getTextInputState,
-    state => {
-        return state.text;
-    }
+    state => state.text
 );
 

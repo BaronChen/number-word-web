@@ -18,7 +18,7 @@ export class ConverterService {
   constructor(private http: HttpClient) { }
 
   convertNumberToText(data: MyNumber):Observable<Word> {
-    return this.http.post(this.apiUrl + '/number-to-word', data).retry(2)
+    return this.http.post(this.apiUrl + '/number-to-word', data)
               .catch((err:any) => {
                 //TODO: more robust error handling
                 if (err.error instanceof Error) {

@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NumberInputComponent } from './number-input.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
-import { Store, StoreModule } from '@ngrx/store';
+import { Store, StoreModule, INITIAL_STATE } from '@ngrx/store';
 
 
 describe('NumberInputComponent', () => {
@@ -15,7 +15,15 @@ describe('NumberInputComponent', () => {
     TestBed.configureTestingModule({
       imports: [ StoreModule.forRoot({}) ],
       declarations: [ NumberInputComponent ],
-      schemas: [NO_ERRORS_SCHEMA]
+      schemas: [NO_ERRORS_SCHEMA],
+      providers: [{provide: INITIAL_STATE, useValue: {
+        converter: {
+          numberInput: {
+            number: '',
+            error: ''
+          }
+        }
+      }}]
     })
     .compileComponents();
   }));
@@ -24,7 +32,6 @@ describe('NumberInputComponent', () => {
     fixture = TestBed.createComponent(NumberInputComponent);
     component = fixture.componentInstance;
     store = TestBed.get(Store);
-
     spyOn(store, 'dispatch').and.callThrough();
     fixture.detectChanges();
   });

@@ -12,6 +12,7 @@ import { UpdateNumber, ClearNumber } from './actions/number-input.actions';
 export class NumberInputComponent implements OnInit {
 
   number$: Observable<string>;
+  error$: Observable<string>;
 
   constructor(private store: Store<fromStore.State>) { 
 
@@ -19,6 +20,7 @@ export class NumberInputComponent implements OnInit {
 
   ngOnInit() {
     this.number$ = this.store.select(fromStore.getNumber);
+    this.error$ = this.store.select(fromStore.getNumberInputError);
   }
 
   numberChange(value:string) {

@@ -1,11 +1,11 @@
 <mat-card class="text-card">
     <mat-card-title>
-      Type text:
+      Type text of a number:
     </mat-card-title>
     <mat-card-content>
       <form class="form">
         <mat-form-field class="form__input">
-          <textarea matInput placeholder="Text" value="{{text}}" rows="6" (change)="onTextChange($event.target.value)"></textarea>
+          <textarea matInput placeholder="Text" value="{{text}}" rows="6" (change)="onTextChange($event.target.value)" required></textarea>
         </mat-form-field>
       </form>
     </mat-card-content>

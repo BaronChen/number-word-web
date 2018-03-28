@@ -7,8 +7,15 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class TextInputCardComponent implements OnInit {
 
+  get hasError():boolean {
+    return this.error && this.error !== '';
+  }
+
   @Input()
   text: string;
+
+  @Input()
+  error: string;
 
   @Output()
   textChange: EventEmitter<string> = new EventEmitter<string>();
