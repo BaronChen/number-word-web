@@ -37,7 +37,7 @@ describe('NumberInput Reducer', () => {
       const result = reducer(testState, action);
 
       expect(result).not.toEqual(testState);
-      expect(result.number).toBe('');
+      expect(result.error).toBe(testError);
       
     });
 });
