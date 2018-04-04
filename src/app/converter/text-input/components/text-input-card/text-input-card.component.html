@@ -3,9 +3,10 @@
       Type text of a number:
     </mat-card-title>
     <mat-card-content>
-      <form class="form">
+      <form class="form" [formGroup]="textInputForm">
         <mat-form-field class="form__input">
-          <textarea matInput placeholder="Text" value="{{text}}" rows="6" (change)="onTextChange($event.target.value)" required></textarea>
+          <textarea matInput placeholder="Text" formControlName="text" value="{{text}}" rows="6" (change)="onTextChange($event.target.value)"></textarea>
+          <mat-error *ngIf="hasError">{{error}}</mat-error>
         </mat-form-field>
       </form>
     </mat-card-content>

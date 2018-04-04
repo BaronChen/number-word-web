@@ -11,6 +11,9 @@ export class ConverterButtonsGroupComponent implements OnInit {
   @Output()
   numberToTextClick = new EventEmitter();
 
+  @Output()
+  textToNumberClick = new EventEmitter();
+
   isMobile: boolean;
 
   constructor(private breakpointObserver: BreakpointObserver) { }
@@ -28,6 +31,10 @@ export class ConverterButtonsGroupComponent implements OnInit {
 
   onNumberToTextClick() {
     this.numberToTextClick.emit();
+  }
+
+  onTextToNumberClick() {
+    this.textToNumberClick.emit();
   }
 
 }

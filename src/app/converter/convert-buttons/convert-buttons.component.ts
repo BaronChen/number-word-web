@@ -18,4 +18,8 @@ export class ConvertButtonsComponent implements OnInit {
   numberToTextClick() {
     this.store.dispatch(new ConvertNumberToText());
   }
+
+  textToNumberClick() {
+    this.store.dispatch(new ConvertTextToNumber());
+  }
 }

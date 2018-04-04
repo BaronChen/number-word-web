@@ -12,11 +12,13 @@ import { UpdateText } from './actions/text-input.actions';
 export class TextInputComponent implements OnInit {
 
   text$: Observable<string>;
+  error$: Observable<string>;
 
   constructor(private store: Store<fromStore.State>) { }
 
   ngOnInit() {
     this.text$ = this.store.select(fromStore.getText);
+    this.error$ = this.store.select(fromStore.getTextInputError);
   }
 
   textChange(value: string) {

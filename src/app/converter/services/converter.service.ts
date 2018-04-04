@@ -32,4 +32,19 @@ export class ConverterService {
               });
   }
 
+  convertTextToNumber(data: Word):Observable<MyNumber> {
+    return this.http.post(this.apiUrl + '/word-to-number', data)
+              .catch((err:any) => {
+                //TODO: more robust error handling
+                if (err.error instanceof Error) {
+                  return Observable.throw(err.error.message);
+                }else{
+                  return Observable.throw(err.error.errors[0]);
+                }
+              })
+              .map((result: StandardResponse<MyNumber>): MyNumber => {
+                return result.data;
+              });
+  }
+
 }

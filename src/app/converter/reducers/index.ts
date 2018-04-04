@@ -38,9 +38,13 @@ export const getTextInputState = createSelector(
     state => state.textInput
 );
 
-
 export const getText = createSelector(
     getTextInputState,
     state => state.text
+);
+
+export const getTextInputError = createSelector(
+    getTextInputState,
+    state => state.error
 );
 

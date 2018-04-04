@@ -1,1 +1,1 @@
-<app-text-input-card [text]="text$ | async" (textChange)="textChange($event)"></app-text-input-card>
+<app-text-input-card [text]="text$ | async" [error]="error$ | async" (textChange)="textChange($event)"></app-text-input-card>
