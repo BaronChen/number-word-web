@@ -1,5 +1,5 @@
 import { reducer, initialState, State } from './number-input.reducer';
-import { UpdateNumber, ClearNumber } from '../actions/number-input.actions';
+import { UpdateNumber, ClearNumber, SetNumberInputError } from '../actions/number-input.actions';
 
 describe('NumberInput Reducer', () => {
     it('should return the initial state', () => {
@@ -23,6 +23,17 @@ describe('NumberInput Reducer', () => {
     it('should clear number base on action', () => {
       const testState:State = {number: '1234', error: ''};
       const action = new ClearNumber();
+      const result = reducer(testState, action);
+
+      expect(result).not.toEqual(testState);
+      expect(result.number).toBe('');
+      
+    });
+
+    it('should set number input error base on action', () => {
+      const testError = "testError";
+      const testState:State = {number: '1234', error: ''};
+      const action = new SetNumberInputError(testError);
       const result = reducer(testState, action);
 
       expect(result).not.toEqual(testState);
