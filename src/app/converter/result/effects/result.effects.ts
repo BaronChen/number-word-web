@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect } from '@ngrx/effects';
-import { TextInputActions, TextInputActionTypes } from '../actions/text-input.actions';
+import { ResultActions, ResultActionTypes } from '../actions/result.actions';
 
 @Injectable()
-export class TextInputEffects {
+export class ResultEffects {
 
   // @Effect()
   // effect$ = this.actions$.ofType(TextInputActionTypes.TextInputAction);

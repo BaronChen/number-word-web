@@ -1,18 +1,18 @@
 import * as numberInput from '../number-input/reducers/number-input.reducer';
-import * as textInput from '../text-input/reducers/text-input.reducer';
+import * as result from '../result/reducers/result.reducer';
 import * as convertButtons from '../convert-buttons/reducers/convert-buttons.reducer';
 
 import { createSelector, createFeatureSelector } from '@ngrx/store';
 
 export interface State {
     numberInput: numberInput.State,
-    textInput: textInput.State,
+    result: result.State,
     convertButtons: convertButtons.State
 }
 
 export const reducers = {
     numberInput: numberInput.reducer,
-    textInput: textInput.reducer,
+    result: result.reducer,
     convertButtons: convertButtons.reducer
 };
 
@@ -33,18 +33,12 @@ export const getNumberInputError = createSelector(
     state => state.error
 );
 
-export const getTextInputState = createSelector(
+export const getResultState = createSelector(
     getConverterState,
-    state => state.textInput
+    state => state.result
 );
 
-export const getText = createSelector(
-    getTextInputState,
-    state => state.text
+export const getResult = createSelector(
+    getResultState,
+    state => state.result
 );
-
-export const getTextInputError = createSelector(
-    getTextInputState,
-    state => state.error
-);
-

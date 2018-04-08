@@ -1,25 +1,24 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TextInputComponent } from './text-input.component';
+import { ResultComponent } from './result.component';
 import { Store, StoreModule, INITIAL_STATE } from '@ngrx/store';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 
 describe('TextInputComponent', () => {
-  let component: TextInputComponent;
-  let fixture: ComponentFixture<TextInputComponent>;
+  let component: ResultComponent;
+  let fixture: ComponentFixture<ResultComponent>;
   let store: Store<any>;
 
   beforeEach(async() => {
     TestBed.configureTestingModule({
       imports: [ StoreModule.forRoot({}) ],
-      declarations: [ TextInputComponent ],
+      declarations: [ ResultComponent ],
       schemas: [NO_ERRORS_SCHEMA],
       providers: [{provide: INITIAL_STATE, useValue: {
         converter: {
-          textInput: {
-            text: '',
-            error: ''
+          result: {
+            result: ''
           }
         }
       }}]
@@ -29,7 +28,7 @@ describe('TextInputComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TextInputComponent);
+    fixture = TestBed.createComponent(ResultComponent);
     component = fixture.componentInstance;
     store = TestBed.get(Store);
 

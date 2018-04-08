@@ -2,21 +2,21 @@ import { TestBed, inject } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable } from 'rxjs/Observable';
 
-import { TextInputEffects } from './text-input.effects';
+import { ResultEffects } from './result.effects';
 
 describe('TextInputService', () => {
   let actions$: Observable<any>;
-  let effects: TextInputEffects;
+  let effects: ResultEffects;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        TextInputEffects,
+        ResultEffects,
         provideMockActions(() => actions$)
       ]
     });
 
-    effects = TestBed.get(TextInputEffects);
+    effects = TestBed.get(ResultEffects);
   });
 
   it('should be created', () => {
