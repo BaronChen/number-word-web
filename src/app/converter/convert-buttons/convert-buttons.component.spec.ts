@@ -1,8 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ConvertButtonsComponent } from './convert-buttons.component';
-import { Store, StoreModule } from '@ngrx/store';
+import { Store, StoreModule, INITIAL_STATE } from '@ngrx/store';
 import { NO_ERRORS_SCHEMA} from '@angular/core'
+import { ConversionType } from './models';
 
 describe('ConvertButtonsComponent', () => {
   let component: ConvertButtonsComponent;
@@ -13,7 +14,14 @@ describe('ConvertButtonsComponent', () => {
     TestBed.configureTestingModule({
       imports: [ StoreModule.forRoot({}) ],
       declarations: [ ConvertButtonsComponent ],
-      schemas: [NO_ERRORS_SCHEMA]
+      schemas: [NO_ERRORS_SCHEMA],
+      providers: [{provide: INITIAL_STATE, useValue: {
+        converter: {
+          convertButtons: {
+            conversionType: ConversionType.numberToText
+          }
+        }
+      }}]
     });
 
     await TestBed.compileComponents();
