@@ -1,5 +1,12 @@
 <div class="button-group" [ngClass]="{rotate: isMobile}">
-    <button mat-raised-button color="primary" (click)="onNumberToTextClick()"><mat-icon>arrow_forward</mat-icon></button>
-    <mat-icon class="convert-icon">autorenew</mat-icon>
-    <button mat-raised-button color="primary" (click)="onTextToNumberClick()"><mat-icon>arrow_back</mat-icon></button>
+    <mat-form-field>
+        <mat-select placeholder="Conversion Type" [ngModel]="conversionType" (ngModelChange)="onUpdateConversionType($event)">
+            <mat-option *ngFor="let item of convertionTypeArray" [value]="item.value">
+                {{ item.name }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="onConvertClick()">
+        <mat-icon>autorenew</mat-icon>Convert
+    </button>
 </div>

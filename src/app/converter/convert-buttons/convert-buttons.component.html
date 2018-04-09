@@ -1,1 +1,1 @@
-<app-converter-buttons-group (numberToTextClick)="numberToTextClick()" (textToNumberClick)="textToNumberClick()"></app-converter-buttons-group>
+<app-converter-buttons-group [conversionType]="conversionType$ | async" (convertClick)="convertClick()" (updateConversionType)="updateConversionType($event)"></app-converter-buttons-group>

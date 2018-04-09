@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as fromConvertButtons from './reducers/convert-buttons.reducer';
-import { ConvertNumberToText, ConvertTextToNumber} from './actions/convert-buttons.actions';
+import * as fromStore from '../reducers';
+import { Convert, UpdateConversionType } from './actions/convert-buttons.actions';
+import { ConversionType } from './models';
+import { Observable } from 'rxjs/Observable';
+
 
 @Component({
   selector: 'app-convert-buttons',
@@ -10,16 +14,19 @@ import { ConvertNumberToText, ConvertTextToNumber} from './actions/convert-butto
 })
 export class ConvertButtonsComponent implements OnInit {
 
+  conversionType$:Observable<ConversionType>;
+
   constructor(private store: Store<fromConvertButtons.State>) { }
 
   ngOnInit() {
+    this.conversionType$ = this.store.select(fromStore.getConversionType);
   }
 
-  numberToTextClick() {
-    this.store.dispatch(new ConvertNumberToText());
+  convertClick() {
+    this.store.dispatch(new Convert());
   }
 
-  textToNumberClick() {
-    this.store.dispatch(new ConvertTextToNumber());
+  updateConversionType(type:ConversionType) {
+    this.store.dispatch(new UpdateConversionType(type));
   }
 }

@@ -1,11 +1,12 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 
 @Component({
   selector: 'app-number-input-card',
   templateUrl: './number-input-card.component.html',
-  styleUrls: ['./number-input-card.component.scss']
+  styleUrls: ['./number-input-card.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NumberInputCardComponent implements OnInit {
 

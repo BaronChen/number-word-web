@@ -1,18 +1,28 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { ConversionType } from '../../models';
 
 @Component({
   selector: 'app-converter-buttons-group',
   templateUrl: './converter-buttons-group.component.html',
-  styleUrls: ['./converter-buttons-group.component.scss']
+  styleUrls: ['./converter-buttons-group.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ConverterButtonsGroupComponent implements OnInit {
 
-  @Output()
-  numberToTextClick = new EventEmitter();
+  @Input()
+  conversionType: ConversionType;
+
+  convertionTypeArray:{ value: ConversionType, name: string }[] = [
+    {value: ConversionType.numberToText, name: 'Numeric To Text'},
+    {value: ConversionType.textToNumber, name: 'Text To Numeric'},
+  ];
 
   @Output()
-  textToNumberClick = new EventEmitter();
+  convertClick = new EventEmitter();
+
+  @Output()
+  updateConversionType = new EventEmitter<ConversionType>();
 
   isMobile: boolean;
 
@@ -29,12 +39,12 @@ export class ConverterButtonsGroupComponent implements OnInit {
     });
   }
 
-  onNumberToTextClick() {
-    this.numberToTextClick.emit();
+  onConvertClick() {
+    this.convertClick.emit();
   }
 
-  onTextToNumberClick() {
-    this.textToNumberClick.emit();
+  onUpdateConversionType(type: ConversionType) {
+    this.updateConversionType.emit(type);
   }
 
 }

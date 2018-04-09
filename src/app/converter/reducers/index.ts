@@ -3,6 +3,7 @@ import * as result from '../result/reducers/result.reducer';
 import * as convertButtons from '../convert-buttons/reducers/convert-buttons.reducer';
 
 import { createSelector, createFeatureSelector } from '@ngrx/store';
+import { state } from '@angular/core';
 
 export interface State {
     numberInput: numberInput.State,
@@ -41,4 +42,14 @@ export const getResultState = createSelector(
 export const getResult = createSelector(
     getResultState,
     state => state.result
+);
+
+export const getConverButtonsState = createSelector(
+    getConverterState,
+    state => state.convertButtons
+);
+
+export const getConversionType = createSelector(
+    getConverButtonsState,
+    state => state.conversionType
 );

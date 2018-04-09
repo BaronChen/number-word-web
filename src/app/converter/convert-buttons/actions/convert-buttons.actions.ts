@@ -1,17 +1,19 @@
 import { Action } from '@ngrx/store';
+import { ConversionType } from '../models';
 
 export enum ConvertButtonsActionTypes {
-  ConvertNumberToText = '[ConvertButtons] Convert number to Text',
-  ConvertTextToNumber = '[ConvertButtons] Convert text to number'  
+  Convert = '[ConvertButtons] Convert',
+  UpdateConversionType = '[ConvertButtons] Update ConversionType'  
 }
 
-export class ConvertNumberToText implements Action {
-  readonly type = ConvertButtonsActionTypes.ConvertNumberToText;
+export class Convert implements Action {
+  readonly type = ConvertButtonsActionTypes.Convert;
 }
 
 
-export class ConvertTextToNumber implements Action {
-  readonly type = ConvertButtonsActionTypes.ConvertTextToNumber;
+export class UpdateConversionType implements Action {
+  readonly type = ConvertButtonsActionTypes.UpdateConversionType;
+  constructor(public payload: ConversionType) { }
 }
 
-export type ConvertButtonsActions = ConvertNumberToText | ConvertTextToNumber;
+export type ConvertButtonsActions = Convert | UpdateConversionType;
