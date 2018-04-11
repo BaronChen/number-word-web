@@ -1,4 +1,4 @@
-<div class="button-group" [ngClass]="{rotate: isMobile}">
+<div class="button-group">
     <mat-form-field>
         <mat-select placeholder="Conversion Type" [ngModel]="conversionType" (ngModelChange)="onUpdateConversionType($event)">
             <mat-option *ngFor="let item of convertionTypeArray" [value]="item.value">

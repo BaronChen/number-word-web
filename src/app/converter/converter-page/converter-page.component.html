@@ -1,5 +1,11 @@
-<div class="converter-page" [ngClass]="isMobile ? 'vertical-align' : 'horizontal-align'">
-    <app-number-input></app-number-input>
-    <app-convert-buttons></app-convert-buttons>
-    <app-result></app-result>
+<div class="converter-page">
+    <div class="title">
+        <h1>Number/Text Converter</h1>
+    </div>
+    <div class="function__block" [ngClass]="isMobile ? 'vertical-align' : 'horizontal-align'">
+        <app-number-input></app-number-input>
+        <app-convert-buttons></app-convert-buttons>
+        <app-result></app-result>
+    </div>
 </div>
+

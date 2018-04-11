@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import {DomSanitizer} from '@angular/platform-browser';
+import {MatIconRegistry} from '@angular/material';
+
 
 @Component({
   selector: 'app-root',
@@ -6,4 +9,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer){
+    iconRegistry.addSvgIcon(
+      'github',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/github.svg'));
+  }
 }
