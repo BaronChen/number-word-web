@@ -11,11 +11,11 @@ jobs:
           command: |
             export CLOUDSDK_CORE_DISABLE_PROMPTS=1
             curl https://sdk.cloud.google.com | bash
-            gcloud init
+            ${HOME}/google-cloud-sdk/gcloud init
             echo $GCLOUD_SERVICE_KEY > ${HOME}/gcloud-service-key.json
-            gcloud auth activate-service-account --key-file=${HOME}/gcloud-service-key.json
-            gcloud config set project number-text-convert
-            gcloud config set compute/zone australia-southeast1-a
+            ${HOME}/google-cloud-sdk/gcloud auth activate-service-account --key-file=${HOME}/gcloud-service-key.json
+            ${HOME}/google-cloud-sdk/gcloud config set project number-text-convert
+            ${HOME}/google-cloud-sdk/gcloud config set compute/zone australia-southeast1-a
           
       # ... steps for building/testing app ...
       - run:
@@ -35,7 +35,7 @@ jobs:
           command: |
             TAG=web-0.$CIRCLE_BUILD_NUM
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              gcloud auth configure-docker
+              ${HOME}/google-cloud-sdk/gcloud auth configure-docker
               docker-compose -f docker-compose.prod.yml build 
               docker tag numberwordweb:prod-v1 asia.gcr.io/number-text-convert/numberwordweb:$TAG
               docker login asia.gcr.io -u $DOCKER_USER -p $DOCKER_PASS        
