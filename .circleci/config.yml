@@ -34,6 +34,7 @@ jobs:
           name: Build docker image
           command: |
             TAG=web-0.$CIRCLE_BUILD_NUM
+            export PATH=${HOME}/google-cloud-sdk/bin:$PATH
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               gcloud auth configure-docker
               docker-compose -f docker-compose.prod.yml build 
