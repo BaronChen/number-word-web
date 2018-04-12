@@ -9,11 +9,12 @@ jobs:
       - run:
           name: Install gcloud
           command: |
+            export CLOUDSDK_CORE_DISABLE_PROMPTS=1
             curl https://sdk.cloud.google.com | bash
             gcloud init
             echo $GCLOUD_SERVICE_KEY > ${HOME}/gcloud-service-key.json
-            sudo /opt/google-cloud-sdk/bin/gcloud auth activate-service-account --key-file=${HOME}/gcloud-service-key.json
-            sudo /opt/google-cloud-sdk/bin/gcloud config set project number-text-convert
+            gcloud auth activate-service-account --key-file=${HOME}/gcloud-service-key.json
+            gcloud config set project number-text-convert
             gcloud config set compute/zone australia-southeast1-a
           
       # ... steps for building/testing app ...
