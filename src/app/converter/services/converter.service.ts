@@ -13,38 +13,31 @@ import { StandardResponse } from '../../shared/models';
 @Injectable()
 export class ConverterService {
 
-  apiUrl: string = environment.apiUrl + '/number-word'; 
+  apiUrl: string = environment.apiUrl + '/number-word';
 
   constructor(private http: HttpClient) { }
 
-  convertNumberToText(data: MyNumber):Observable<Word> {
-    return this.http.post(this.apiUrl + '/number-to-word', data)
-              .catch((err:any) => {
-                //TODO: more robust error handling
-                if (err.error instanceof Error) {
-                  return Observable.throw(err.error.message);
-                }else{
-                  return Observable.throw(err.error.errors[0]);
-                }
-              })
-              .map((result: StandardResponse<Word>): Word => {
-                return result.data;
-              });
+  convertNumberToText(data: MyNumber): Observable<Word> {
+    return this.makeRequest(this.apiUrl + '/number-to-word', data) as Observable<Word>
   }
 
-  convertTextToNumber(data: Word):Observable<MyNumber> {
-    return this.http.post(this.apiUrl + '/word-to-number', data)
-              .catch((err:any) => {
-                //TODO: more robust error handling
-                if (err.error instanceof Error) {
-                  return Observable.throw(err.error.message);
-                }else{
-                  return Observable.throw(err.error.errors[0]);
-                }
-              })
-              .map((result: StandardResponse<MyNumber>): MyNumber => {
-                return result.data;
-              });
+  convertTextToNumber(data: Word): Observable<MyNumber> {
+    return this.makeRequest(this.apiUrl + '/word-to-number', data) as Observable<MyNumber>;
+  }
+
+  makeRequest(url: string, data: Word | MyNumber) {
+    return this.http.post(url, data)
+      .catch((err: any) => {
+        //TODO: more robust error handling
+        if (err.error instanceof Error) {
+          return Observable.throw(err.error.message);
+        } else {
+          return Observable.throw(err.error.errors[0]);
+        }
+      })
+      .map((result: StandardResponse<MyNumber | Word>): MyNumber | Word => {
+        return result.data;
+      });
   }
 
 }

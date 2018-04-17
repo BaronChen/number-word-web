@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NotFoundComponent } from './not-found.component';
+import { DebugElement } from '@angular/core';
 
 describe('NotFoundComponent', () => {
   let component: NotFoundComponent;
@@ -21,5 +22,8 @@ describe('NotFoundComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+    const el:DebugElement = fixture.debugElement;
+    let h1 = el.nativeElement.querySelector('h1');
+    expect(h1.textContent.trim()).toEqual('Page not found!');
   });
 });
