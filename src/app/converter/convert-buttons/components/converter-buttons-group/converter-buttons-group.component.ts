@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { ConversionType } from '../../models';
 
 @Component({
@@ -24,19 +23,10 @@ export class ConverterButtonsGroupComponent implements OnInit {
   @Output()
   updateConversionType = new EventEmitter<ConversionType>();
 
-  isMobile: boolean;
-
-  constructor(private breakpointObserver: BreakpointObserver) { }
+  constructor() { }
 
   ngOnInit() {
-    this.breakpointObserver.observe([
-      Breakpoints.Handset,
-      Breakpoints.Tablet
-    ]).subscribe(result => {
-      if (result.matches) {
-        this.isMobile = true;
-      }
-    });
+
   }
 
   onConvertClick() {

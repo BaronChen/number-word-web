@@ -2,9 +2,10 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ConverterPageComponent } from './converter-page.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { BreakpointObserver } from '@angular/cdk/layout';
+import { BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
+
 
 describe('ConverterPageComponent', () => {
   let component: ConverterPageComponent;
@@ -19,6 +20,7 @@ describe('ConverterPageComponent', () => {
         });
       }
     }
+    spyOn(fakeObserver, 'observe').and.callThrough()
     TestBed.configureTestingModule({
       declarations: [ ConverterPageComponent ],
       schemas: [NO_ERRORS_SCHEMA],
@@ -36,4 +38,15 @@ describe('ConverterPageComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
+  it('should subscribe to correct observable', () => {
+    expect(fakeObserver.observe).toHaveBeenCalledWith([
+      Breakpoints.Handset,
+      Breakpoints.Tablet
+    ]);
+
+    expect(component.isMobile).toBe(true);
+  });
+
 });
