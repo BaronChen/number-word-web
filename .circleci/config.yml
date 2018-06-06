@@ -39,5 +39,5 @@ jobs:
               gcloud auth --quiet configure-docker
               docker-compose -f docker-compose.prod.yml build 
               docker tag numberwordweb:prod-v1 asia.gcr.io/number-2-text/numberwordweb:$TAG
-              docker push asia.gcr.io/number-text-convert/numberwordweb
+              docker push asia.gcr.io/number-2-text/numberwordweb
             fi
